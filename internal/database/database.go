@@ -6,8 +6,9 @@ import (
 )
 
 type Database struct {
-	Pool *pgxpool.Pool
-	log  *zerolog.Logger
+	Pool   *pgxpool.Pool
+	logger *zerolog.Logger
 }
 
+// DatabaseTimeout is the timeout in seconds for database operations
 const DatabaseTimeout = 10

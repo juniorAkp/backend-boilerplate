@@ -79,14 +79,14 @@ func (c *ObservabilityConfig) Validate() error {
 }
 
 func (c *ObservabilityConfig) GetLogLevel() string {
-	switch c.Environment {
-	case "production":
-		if c.Logging.Level == "" {
+	if c.Logging.Level == "" {
+		switch c.Environment {
+		case "production":
 			return "info"
-		}
-	case "development":
-		if c.Logging.Level == "" {
+		case "development":
 			return "debug"
+		default:
+			return "info"
 		}
 	}
 	return c.Logging.Level

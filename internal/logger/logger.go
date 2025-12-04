@@ -39,6 +39,7 @@ func New(c *config.ObservabilityConfig) *LoggerService {
 
 	app, err := newrelic.NewApplication(configOptions...)
 	if err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to initialize New Relic: %v\n", err)
 		return service
 	}
 
@@ -76,7 +77,7 @@ func NewLoggerWithService(cfg *config.ObservabilityConfig, loggerService *Logger
 	default:
 		logLevel = zerolog.InfoLevel
 	}
-
+	// Let each logger have its own level
 	//let each logger have its own level
 	zerolog.TimeFieldFormat = "2006-01-02 15:04:05"
 	zerolog.ErrorStackMarshaler = pkgerrors.MarshalStack
@@ -101,8 +102,6 @@ func NewLoggerWithService(cfg *config.ObservabilityConfig, loggerService *Logger
 		consoleWriter := zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: "2006-01-02 15:04:05"}
 		writer = consoleWriter
 	}
-
-	// Note: New Relic log forwarding is now handled automatically by zerologWriter integration
 
 	logger := zerolog.New(writer).
 		Level(logLevel).
