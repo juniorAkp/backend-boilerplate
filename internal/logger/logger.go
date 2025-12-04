@@ -78,7 +78,6 @@ func NewLoggerWithService(cfg *config.ObservabilityConfig, loggerService *Logger
 		logLevel = zerolog.InfoLevel
 	}
 	// Let each logger have its own level
-	//let each logger have its own level
 	zerolog.TimeFieldFormat = "2006-01-02 15:04:05"
 	zerolog.ErrorStackMarshaler = pkgerrors.MarshalStack
 
