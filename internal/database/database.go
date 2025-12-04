@@ -12,8 +12,8 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/jackc/pgx/v5/tracelog"
-	"github.com/juniorAkp/backend-boilerplate/backend/internal/config"
-	loggerConfig "github.com/juniorAkp/backend-boilerplate/backend/internal/logger"
+	"github.com/juniorAkp/backend-boilerplate/internal/config"
+	loggerConfig "github.com/juniorAkp/backend-boilerplate/internal/logger"
 	nrpgx5 "github.com/newrelic/go-agent/v3/integrations/nrpgx5"
 	"github.com/rs/zerolog"
 )

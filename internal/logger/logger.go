@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/juniorAkp/backend-boilerplate/backend/internal/config"
+	"github.com/juniorAkp/backend-boilerplate/internal/config"
 	"github.com/newrelic/go-agent/v3/integrations/logcontext-v2/zerologWriter"
 	"github.com/newrelic/go-agent/v3/newrelic"
 	"github.com/rs/zerolog"
