@@ -10,7 +10,7 @@ func NewRateLimitMiddleware(s *server.Server) *RateLimitMiddleware {
 	return &RateLimitMiddleware{server: s}
 }
 
-func (r *RateLimitMiddleware) RecordRateLimit(endpoint string) {
+func (r *RateLimitMiddleware) RecordRateLimitHit(endpoint string) {
 
 	if r.server.LoggerService != nil && r.server.LoggerService.GetApplication() != nil {
 		app := r.server.LoggerService.GetApplication()
